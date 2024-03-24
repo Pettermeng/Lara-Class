@@ -15,4 +15,21 @@ class PostController extends Controller
             'id' => $id
         ]);
     }
-}
+
+    // Add Post
+    public function addPost() {
+        return view('add-post');
+    }
+    public function addPostSubmit(Request $request) {
+        // $name = $request->username;
+        // return $name;
+
+        $file = $request->file('profile');
+        $profile = rand(1,999).'-'.$file->getClientOriginalName();
+        $path    = 'uploads';
+        $file->move($path, $profile);
+
+        return redirect('/add-post');
+
+    }
+ }

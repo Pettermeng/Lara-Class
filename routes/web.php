@@ -18,5 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post',        [PostController::class, 'listPost']);
-Route::get('/post-detail/{id}', [PostController::class, 'postDetail']);
+Route::get('/post',              [PostController::class, 'listPost']);
+Route::get('/post-detail/{id}',  [PostController::class, 'postDetail']);
+
+Route::get('/add-post',          [PostController::class, 'addPost']);
+Route::post('/add-post-submit',  [PostController::class, 'addPostSubmit']);
