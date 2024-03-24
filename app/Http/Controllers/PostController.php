@@ -32,4 +32,14 @@ class PostController extends Controller
         return redirect('/add-post');
 
     }
+
+    //Master Template
+    public function Home() {
+        return view('home');
+    }
+
+    public function About() {
+        return view('about');
+    }
+
  }
