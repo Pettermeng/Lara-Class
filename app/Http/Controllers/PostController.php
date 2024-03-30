@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     public function listPost() {
-        return view('list-post');
+
+        $post = DB::table('post')
+                    ->orderByDesc('id')
+                    ->get();
+        
+        return view('list-post',[
+            'post' => $post
+        ]);
     }
 
     public function postDetail($id) {
@@ -21,13 +29,21 @@ class PostController extends Controller
         return view('add-post');
     }
     public function addPostSubmit(Request $request) {
-        // $name = $request->username;
-        // return $name;
 
-        $file = $request->file('profile');
-        $profile = rand(1,999).'-'.$file->getClientOriginalName();
+        $title = $request->title;
+        $description = $request->description;
+
+        $file    = $request->file('thumbnail');
+        $thumbnail = rand(1,999).'-'.$file->getClientOriginalName();
         $path    = 'uploads';
-        $file->move($path, $profile);
+        $file->move($path, $thumbnail);
+
+        //Prepare Insert to DB
+        $post = DB::table('post')->insert([
+                        'title'       => $title,
+                        'thumbnail'   => $thumbnail,
+                        'description' => $description
+                    ]);
 
         return redirect('/add-post');
 

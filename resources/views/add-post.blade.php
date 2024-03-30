@@ -9,10 +9,9 @@
 <body>
     <form action="/add-post-submit" method="post" enctype="multipart/form-data">
         @csrf
-        Username <br> <input type="text" name="username"> <br>
-        Email <br> <input type="text" name="email"> <br>
-        Password <br> <input type="password" name="password"> <br>
-        Profile <br> <input type="file" name="profile">
+        Title <br> <input type="text" name="title"> <br>
+        Thumbnail <br> <input type="file" name="thumbnail"> <br>
+        Description <br> <textarea name="description"></textarea> <br>
         <input type="submit" >
     </form>
 </body>

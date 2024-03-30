@@ -8,5 +8,19 @@
 </head>
 <body>
     <h1>list Post</h1>
+    <table border="1px" width="550px">
+        <tr>
+            <th>Title</th>
+            <th>Thumbnail</th>
+            <th>Description</th>
+        </tr>
+        @foreach ($post as $item)
+            <tr>
+                <td>{{ $item->title }}</td>
+                <td><img src="/uploads/{{ $item->thumbnail }}" width="120px"></td>
+                <td>{{ $item->description }}</td>
+            </tr> 
+        @endforeach
+    </table>
 </body>
 </html>

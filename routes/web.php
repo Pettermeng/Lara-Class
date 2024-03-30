@@ -24,5 +24,5 @@ Route::get('/post-detail/{id}',  [PostController::class, 'postDetail']);
 Route::get('/add-post',          [PostController::class, 'addPost']);
 Route::post('/add-post-submit',  [PostController::class, 'addPostSubmit']);
 
-Route::get('/home',          [PostController::class, 'Home']);
-Route::get('/about',          [PostController::class, 'About']);
+Route::get('/home',              [PostController::class, 'Home']);
+Route::get('/about',             [PostController::class, 'About']);
