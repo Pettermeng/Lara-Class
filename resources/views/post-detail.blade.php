@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Post Detail</h1>
-    <p>You're current detail on post id = {{ $id }}</p>
+    <h1>{{ $post[0]->title }}</h1>
+    <img src="/uploads/{{ $post[0]->thumbnail }}" width="150px">
+    <p>{{ $post[0]->description }} </p>
 </body>
 </html>

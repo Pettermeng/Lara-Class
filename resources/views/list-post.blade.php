@@ -13,12 +13,16 @@
             <th>Title</th>
             <th>Thumbnail</th>
             <th>Description</th>
+            <th>Actions</th>
         </tr>
         @foreach ($post as $item)
             <tr>
                 <td>{{ $item->title }}</td>
                 <td><img src="/uploads/{{ $item->thumbnail }}" width="120px"></td>
                 <td>{{ $item->description }}</td>
+                <td>
+                    <a href="/post-detail/{{ $item->id }}">Detail</a>
+                </td>
             </tr> 
         @endforeach
     </table>

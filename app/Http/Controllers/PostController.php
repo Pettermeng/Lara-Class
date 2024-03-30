@@ -19,8 +19,13 @@ class PostController extends Controller
     }
 
     public function postDetail($id) {
+
+        $post = DB::table('post')
+                    ->where('id', $id)
+                    ->get();
+
         return view('post-detail',[
-            'id' => $id
+            'post' => $post
         ]);
     }
 
