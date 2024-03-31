@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>list Post</h1>
+    @if (Session::has('message'))
+        <p>{{ Session::get('message') }}</p>
+    @endif
+
     <table border="1px" width="550px">
         <tr>
             <th>Title</th>
@@ -22,6 +26,8 @@
                 <td>{{ $item->description }}</td>
                 <td>
                     <a href="/post-detail/{{ $item->id }}">Detail</a>
+                    <a href="/post-update/{{ $item->id }}">Update</a>
+                    <a href="/post-remove/{{ $item->id }}">Remove</a>
                 </td>
             </tr> 
         @endforeach

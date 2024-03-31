@@ -24,5 +24,10 @@ Route::get('/post-detail/{id}',  [PostController::class, 'postDetail']);
 Route::get('/add-post',          [PostController::class, 'addPost']);
 Route::post('/add-post-submit',  [PostController::class, 'addPostSubmit']);
 
+Route::get('/post-update/{id}',          [PostController::class, 'postUpdate']);
+Route::post('/post-update-submit',          [PostController::class, 'postUpdateSubmit']);
+
+Route::get('/post-remove/{id}',          [PostController::class, 'postRemove']);
+
 Route::get('/home',              [PostController::class, 'Home']);
 Route::get('/about',             [PostController::class, 'About']);

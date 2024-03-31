@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>{{ $post[0]->title }}</h1>
-    <img src="/uploads/{{ $post[0]->thumbnail }}" width="150px">
+    <img src="/uploads/{{ $post[p0]->thumbnail }}" width="150px">
     <p>{{ $post[0]->description }} </p>
 </body>
 </html>

@@ -54,6 +54,57 @@ class PostController extends Controller
 
     }
 
+    //action update
+    public function postUpdate($id) {
+        $post = DB::table('post')
+                    // ->where('id', $id)
+                    // ->get();
+                    ->find($id);
+        return view('post-update',[
+            'post' => $post
+        ]);
+    }
+
+    public function postUpdateSubmit(Request $request) {
+        $id          = $request->id;
+        $title       = $request->title;
+        $description = $request->description;
+
+        if(!empty( $request->file('thumbnail'))) {
+            $file = $request->file('thumbnail');
+            $thumbnail = $this->moveUploadFile($file);
+        }
+        else {
+            $thumbnail = $request->old_thumbnail;
+        }
+
+        //prepare update
+        $post = DB::table('post')
+                    ->where('id', $id)
+                    ->update([
+                        'title'       => $title,
+                        'thumbnail'   => $thumbnail,
+                        'description' => $description
+                    ]);
+
+        if($post) {
+            return redirect('/post')->with('message', 'Post Updated');
+        }
+
+    }
+
+    // action remove
+    public function postRemove($id) {
+        $post = DB::table('post')
+                    // ->where('id', $id)
+                    ->delete($id);
+         
+        if($post) {
+            return redirect('/post')->with('message', 'Post Deleted');
+        }            
+                    
+    }
+
     //Master Template
     public function Home() {
         return view('home');
