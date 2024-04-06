@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class PostController extends Controller
 {
@@ -112,6 +114,52 @@ class PostController extends Controller
 
     public function About() {
         return view('about');
+    }
+
+    // User Login & Register
+    public function userRegister()
+    {
+        return view('register');
+    }
+
+    public function userRegisterSubmit(Request $request) {
+        $name     = $request->name;
+        $email    = $request->email;
+        $password = Hash::make($request->password);
+        $date     = date('Y-m-d H:i:s');
+
+        // prepare insert to DB
+        $user = DB::table('users')->insert([
+            'name'       => $name,
+            'email'      => $email,
+            'password'   => $password,
+            'created_at' => $date,
+            'updated_at' => $date,
+        ]);
+
+        if($user) {
+            return redirect('login');
+        }
+    }
+
+    public function userLogin() {
+        return view('login');
+    }
+
+    public function userLoginSubmit(Request $request) {
+        $name      = $request->name;
+        $password  = $request->password;
+
+        if(Auth::attempt([
+            'name'     => $name,
+            'password' => $password
+        ])) {
+            return redirect('add-post');
+        }
+        else {
+            return redirect('login')->with('message', 'Invalid User');
+        }
+
     }
 
  }
