@@ -12,8 +12,19 @@
           <div class="card-body">
             <!-- Logo -->
 
+            {{-- show when register success --}}
             @if (Session::has('message'))
-                <p class="text-danger text-center">{{ Session::get('message') }}</p>
+                <p class="text-primary text-center">{{ Session::get('message') }}</p>
+            @endif
+
+            {{-- show when validate user fail --}}
+            @if (Session::has('message_fail'))
+                <p class="text-danger text-center">{{ Session::get('message_fail') }}</p>
+            @endif
+
+            {{-- show when user signout --}}
+            @if (Session::has('message_logout'))
+                <p class="text-warning text-center">{{ Session::get('message_logout') }}</p>
             @endif
 
             <form id="formAuthentication" class="mb-3" action="/signin-submit" method="POST">

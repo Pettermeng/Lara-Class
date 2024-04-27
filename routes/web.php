@@ -31,17 +31,20 @@ Route::get('/article',      [HomeController::class, 'Article']);
 Route::get('/search',       [HomeController::class, 'Search']);
 
 // User SignIn & SignUp
-Route::get('/signin',        [UserController::class, 'Signin'])->name('login');
+Route::get('/signin',         [UserController::class, 'Signin'])->name('login');
 Route::post('/signin-submit', [UserController::class, 'SigninSubmit']);
 
 Route::get('/signup',         [UserController::class, 'Signup']);
 Route::post('/signup-submit', [UserController::class, 'SignupSubmit']);
 
-Route::get('/admin',             [AdminController::class, 'index']);
-Route::get('/admin/add-post',    [AdminController::class, 'AddPost']);
-Route::get('/admin/list-post',   [AdminController::class, 'ListPost']);
-
 // @Middleware Auth
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('/admin',             [AdminController::class, 'index']);
+    Route::get('/admin/add-post',    [AdminController::class, 'AddPost']);
+    Route::get('/admin/list-post',   [AdminController::class, 'ListPost']);
+
+    // Sign Out
+    Route::get('/admin/signout',     [UserController::class, 'signOut']);
 
 });

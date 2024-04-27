@@ -15,6 +15,10 @@
                 <p class="text-danger text-center">{{ Session::get('message') }}</p>
             @endif
 
+            @if (Session::has('message_exist_user'))
+                <p class="text-warning text-center">{{ Session::get('message_exist_user') }}</p>
+            @endif
+
             <form id="formAuthentication" class="mb-3" action="/signup-submit" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="mb-3">
@@ -25,12 +29,12 @@
                   id="username"
                   name="name"
                   placeholder="Enter your username"
-                  autofocus
+                  required
                 />
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+                <input type="text" class="form-control" id="email" name="email" required placeholder="Enter your email" />
               </div>
               <div class="mb-3 form-password-toggle">
                 <label class="form-label" for="password">Password</label>
@@ -42,13 +46,14 @@
                     name="password"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                     aria-describedby="password"
+                    required
                   />
                   <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                 </div>
               </div>
               <div class="mb-3">
                 <label class="form-label">Profile</label>
-                <input type="file" class="form-control" name="profile" >
+                <input type="file" class="form-control" name="profile" required>
               </div>
 
               <button class="btn btn-primary d-grid w-100">Sign up</button>
