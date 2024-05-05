@@ -47,4 +47,18 @@ Route::middleware(['auth'])->group(function () {
     // Sign Out
     Route::get('/admin/signout',     [UserController::class, 'signOut']);
 
+
+    //add logo
+    Route::get('/admin/add-logo',               [AdminController::class, 'addLogo']);
+    Route::post('/admin/add-logo-submit',       [AdminController::class, 'addLogoSubmit']);
+    Route::get('/admin/list-logo',              [AdminController::class, 'listLogo']);
+    Route::get('/admin/update-logo/{id}',       [AdminController::class, 'updateLogo']);
+    Route::post('/admin/update-logo-submit',    [AdminController::class, 'updateLogoSubmit']);
+    Route::post('/admin/remove-logo-submit',    [AdminController::class, 'removeLogoSubmit']);
+
+    //Log Activity
+    Route::get('/admin/log-activity',           [AdminController::class, 'listLogActivity']);
+
+
+
 });

@@ -7,15 +7,15 @@
         <link href="{{ url('css/frontend/theme.css') }}" rel="stylesheet">
         <link href="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     </head>
-    <body>    
+    <body>
         <header>
             <div class="container">
                 <div class="logo">
                     <a href="/">
-                        {{-- <img src="../uploads/{{$Logo[0]->thumbnail}}" width="180px"> --}}
-                        <h1>
+                        <img src="../uploads/{{$Logo[0]->thumbnail}}" width="180px">
+                        {{-- <h1>
                             KH FASHION
-                        </h1>
+                        </h1> --}}
                     </a>
                 </div>
                 <ul class="menu">
