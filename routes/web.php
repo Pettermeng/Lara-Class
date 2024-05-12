@@ -59,6 +59,10 @@ Route::middleware(['auth'])->group(function () {
     //Log Activity
     Route::get('/admin/log-activity',           [AdminController::class, 'listLogActivity']);
 
+    // Category
+    Route::get('/admin/add-category',           [CategoriesController::class, 'addCategory']);
+    Route::post('/admin/add-category-submit',    [CategoriesController::class, 'addCategorySubmit']);
+
 
 
 });

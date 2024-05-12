@@ -12,10 +12,10 @@
             <div class="container">
                 <div class="logo">
                     <a href="/">
-                        <img src="../uploads/{{$Logo[0]->thumbnail}}" width="180px">
-                        {{-- <h1>
+                        {{-- <img src="../uploads/{{$Logo[0]->thumbnail}}" width="180px"> --}}
+                        <h1>
                             KH FASHION
-                        </h1> --}}
+                        </h1>
                     </a>
                 </div>
                 <ul class="menu">

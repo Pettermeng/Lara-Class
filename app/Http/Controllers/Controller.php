@@ -22,15 +22,21 @@ class Controller extends BaseController
     }
 
     //Log Activities
-    public function logActivity($postType, $productName, $status) {
+    public function logActivity($postType, $title, $action, $author,$date) {
         $user = Auth::user()->name;
-        DB::table('activity_log')->insert([
-            'author'        => $user,
+        DB::table('log_activity')->insert([
+            'title'         => $title,
             'post_type'     => $postType,
-            'product_name'  => $productName,
-            'status'        => $status,
+            'status'        => $action,
+            'author'        => $author,
             'created_at'    => date('Y-m-d H:i:s'),
             'updated_at'    => date('Y-m-d H:i:s')
         ]);
+    }
+
+    //Generate slug
+    public function slug($string){
+        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $string))).'-'.rand(1,999);
+        return $slug;
     }
 }

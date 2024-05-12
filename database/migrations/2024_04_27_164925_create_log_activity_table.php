@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('log_activity', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('post_type');
+            $table->string('status');
+            $table->string('author');
             $table->timestamps();
         });
     }
