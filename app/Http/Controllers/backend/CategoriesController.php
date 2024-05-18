@@ -32,4 +32,26 @@ class CategoriesController extends Controller
     public function ListCategory() {
         return view('backend.list-category');
     }
+
+    //Attribute
+    public function addAttribute() {
+        return view('backend.add-attribute');
+    }
+
+    public function addAttributeSubmit(Request $request) {
+        $type =  $request->type;
+        $value= $request->value;
+        $date = date('Y-m-d H:i:s');
+
+        $attr = DB::table('attribute')->insert([
+            'type' => $type,
+            'value' => $value,
+            'created_at' => $date,
+            'updated_at' => $date
+        ]);
+
+        if($attr) {
+            return redirect('/admin/add-attribute')->with('message',  'Post Inserted');
+        }
+    }
 }

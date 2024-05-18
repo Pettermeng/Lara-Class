@@ -191,6 +191,28 @@
               </ul>
             </li>
 
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-bolt-circle"></i>
+                  <div data-i18n="Layouts">Attribute</div>
+                </a>
+
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="/admin/list-attribute" class="menu-link">
+                      <div data-i18n="Without menu">View Post</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="/admin/add-attribute" class="menu-link">
+                      <div data-i18n="Without menu">Add Post</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+
+
             <!-- Layouts -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
