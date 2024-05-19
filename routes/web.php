@@ -67,4 +67,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/add-attribute',           [CategoriesController::class, 'addAttribute']);
     Route::post('/admin/add-attribute-submit',   [CategoriesController::class, 'addAttributeSubmit']);
 
+    // Product
+    Route::get('/admin/list-product',           [ProductController::class, 'listProduct']);
+    Route::get('/admin/add-product',            [ProductController::class, 'addProduct']);
+    Route::post('/admin/add-product-submit',    [ProductController::class, 'addProductSubmit']);
+
 });
