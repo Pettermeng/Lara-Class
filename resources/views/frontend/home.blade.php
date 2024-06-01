@@ -14,28 +14,43 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for ($i = 0; $i < 4; $i++)
+                    @foreach ($newProducts as $newProductsVal)
+                        {{-- check status is promotion --}}
+                        @if ($newProductsVal->sale_price > 0)
+                            @php
+                                $headLine      = 'd-block';
+                                $promotion     = 'd-block';
+                                $nonePromotion = 'd-none';
+                            @endphp
+                        @else
+                            @php
+                                $headLine      = 'd-none';
+                                $promotion     = 'd-none';
+                                $nonePromotion = 'd-block';
+                            @endphp
+                        @endif
                         <div class="col-3">
                             <figure>
                                 <div class="thumbnail">
-                                    <div class="status">
+                                    <div class="status {{ $headLine }}">
                                         Promotion
                                     </div>
-                                    <a href="/product">
-                                        <img src="https://placehold.co/450x670" alt="">
+                                    <a href="/product/{{ $newProductsVal->slug }}">
+                                        <img src="/uploads/{{$newProductsVal->thumbnail}}" alt="">
                                     </a>
                                 </div>
                                 <div class="detail">
                                     <div class="price-list">
-                                        <div class="price d-none">US 10</div>
-                                        <div class="regular-price "><strike> US 15</strike></div>
-                                        <div class="sale-price ">US 12</div>
+                                        <div class="price {{ $nonePromotion }}">US {{$newProductsVal->regular_price}}</div>
+
+                                        <div class="regular-price {{ $promotion }}"><strike> US {{$newProductsVal->regular_price}}</strike></div>
+                                        <div class="sale-price {{ $promotion }}">US {{$newProductsVal->sale_price}}</div>
                                     </div>
-                                    <h5 class="title">T-Shirt 001</h5>
+                                    <h5 class="title">{{$newProductsVal->name}}</h5>
                                 </div>
                             </figure>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -50,31 +65,46 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for ($i = 0; $i < 4; $i++)
+                    @foreach ($promoProducts as $promoProductsVal)
+                        {{-- check status is promotion --}}
+                        @if ($promoProductsVal->sale_price > 0)
+                            @php
+                                $headLine      = 'd-block';
+                                $promotion     = 'd-block';
+                                $nonePromotion = 'd-none';
+                            @endphp
+                        @else
+                            @php
+                                $headLine      = 'd-none';
+                                $promotion     = 'd-none';
+                                $nonePromotion = 'd-block';
+                            @endphp
+                        @endif
                         <div class="col-3">
                             <figure>
                                 <div class="thumbnail">
-                                    {{-- <div class="status">
+                                    <div class="status {{ $headLine }}">
                                         Promotion
-                                    </div> --}}
-                                    <a href="">
-                                        <img src="https://placehold.co/450x670" alt="">
+                                    </div>
+                                    <a href="/product/{{ $promoProductsVal->slug }}">
+                                        <img src="/uploads/{{$promoProductsVal->thumbnail}}" alt="">
                                     </a>
                                 </div>
                                 <div class="detail">
                                     <div class="price-list">
-                                        <div class="price d-none">US 10</div>
-                                        <div class="regular-price "><strike> US 15</strike></div>
-                                        <div class="sale-price ">US 12</div>
+                                        <div class="price {{ $nonePromotion }}">US {{$promoProductsVal->regular_price}}</div>
+
+                                        <div class="regular-price {{ $promotion }}"><strike> US {{$promoProductsVal->regular_price}}</strike></div>
+                                        <div class="sale-price {{ $promotion }}">US {{$promoProductsVal->sale_price}}</div>
                                     </div>
-                                    <h5 class="title">T-Shirt 001</h5>
+                                    <h5 class="title">{{$promoProductsVal->name}}</h5>
                                 </div>
                             </figure>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
-        </section>  
+        </section>
 
         <section>
             <div class="container">
@@ -86,31 +116,46 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for ($i = 0; $i < 4; $i++)
+                    @foreach ($mostViewProducts as $mostViewProductsVal)
+                        {{-- check status is promotion --}}
+                        @if ($mostViewProductsVal->sale_price > 0)
+                            @php
+                                $headLine      = 'd-block';
+                                $promotion     = 'd-block';
+                                $nonePromotion = 'd-none';
+                            @endphp
+                        @else
+                            @php
+                                $headLine      = 'd-none';
+                                $promotion     = 'd-none';
+                                $nonePromotion = 'd-block';
+                            @endphp
+                        @endif
                         <div class="col-3">
                             <figure>
                                 <div class="thumbnail">
-                                    {{-- <div class="status">
+                                    <div class="status {{ $headLine }}">
                                         Promotion
-                                    </div> --}}
-                                    <a href="">
-                                        <img src="https://placehold.co/450x670" alt="">
+                                    </div>
+                                    <a href="/product/{{ $mostViewProductsVal->slug }}">
+                                        <img src="/uploads/{{$mostViewProductsVal->thumbnail}}" alt="">
                                     </a>
                                 </div>
                                 <div class="detail">
                                     <div class="price-list">
-                                        <div class="price d-none">US 10</div>
-                                        <div class="regular-price "><strike> US 15</strike></div>
-                                        <div class="sale-price ">US 12</div>
+                                        <div class="price {{ $nonePromotion }}">US {{$mostViewProductsVal->regular_price}}</div>
+
+                                        <div class="regular-price {{ $promotion }}"><strike> US {{$mostViewProductsVal->regular_price}}</strike></div>
+                                        <div class="sale-price {{ $promotion }}">US {{$mostViewProductsVal->sale_price}}</div>
                                     </div>
-                                    <h5 class="title">T-Shirt 001</h5>
+                                    <h5 class="title">{{$mostViewProductsVal->name}}</h5>
                                 </div>
                             </figure>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </section>
 
-    </main>  
+    </main>
 @endsection

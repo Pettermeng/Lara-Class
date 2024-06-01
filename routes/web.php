@@ -25,7 +25,7 @@ use App\Http\Controllers\backend\ProductController;
 // Home
 Route::get('/',             [HomeController::class, 'Home']);
 Route::get('/shop',         [HomeController::class, 'Shop']);
-Route::get('/product',      [HomeController::class, 'Product']);
+Route::get('/product/{slug}',      [HomeController::class, 'Product']);
 Route::get('/news',         [HomeController::class, 'News']);
 Route::get('/article',      [HomeController::class, 'Article']);
 Route::get('/search',       [HomeController::class, 'Search']);
