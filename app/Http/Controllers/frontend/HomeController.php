@@ -39,8 +39,49 @@ class HomeController extends Controller
         ]);
     }
 
-    public function Shop() {
-        return view('frontend.shop');
+    public function Shop(Request $request)
+    {
+        //find offset
+        $currentPage = $request->page;
+        $limit  = 3;
+        $offset = ($currentPage - 1) * $limit;
+
+        $productObj = DB::table('product');
+
+        // if user filter by category
+        if($request->cat) {
+            $catObj = DB::table('category')
+                            ->where('slug', $request->cat)
+                            ->get();
+            $catId  = $catObj[0]->id;
+            $products = $productObj->where('category', $catId)
+                                ->offset($offset)
+                                ->limit($limit)
+                                ->orderByDesc('id');
+            $allPosts  = DB::table('product')->where('category', $catId)->count();
+        }
+        else {
+            $products = $productObj->offset($offset)
+                                ->limit($limit)
+                                ->orderByDesc('id');
+            $allPosts  = DB::table('product')->count();
+        }
+
+        $products = $productObj->get();
+
+        // total page
+        $totalPage = ceil($allPosts / $limit);
+
+        // get list category
+        $category = DB::table('category')
+                        ->orderByDesc('id')
+                        ->get();
+
+        return view('frontend.shop',[
+            'products' => $products,
+            'page'     => $totalPage,
+            'category' => $category
+        ]);
     }
 
     public function Product($slug)

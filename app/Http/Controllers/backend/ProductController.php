@@ -79,7 +79,7 @@ class ProductController extends Controller
                         ->select('product.*', 'users.name AS author_name', 'category.name AS cate_name')
                         ->orderByDesc('product.id')
                         ->get();
-                        
+
         return view('backend.list-product',[
             'products' => $products
         ]);

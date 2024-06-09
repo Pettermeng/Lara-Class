@@ -23,7 +23,7 @@ class UserController extends Controller
         if(Auth::attempt(array(
             'name'   => $name,
             'password'=> $password
-        ))) {
+        ), $request->remember)) {
             return redirect('/admin');
         }
         else {
@@ -43,7 +43,7 @@ class UserController extends Controller
 
         //Check existing user in DB
         $existUser = DB::table('users')->where(['name' => $name])->get();
-        if(empty($existUser)) {
+        if(count($existUser) == 0) {
             $file    = $request->file('profile');
             $profile = $this->uploadFile($file);
 
