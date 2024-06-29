@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\ApiController' => $baseDir . '/app/Http/Controllers/ApiController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\backend\\AdminController' => $baseDir . '/app/Http/Controllers/backend/AdminController.php',
     'App\\Http\\Controllers\\backend\\CategoriesController' => $baseDir . '/app/Http/Controllers/backend/CategoriesController.php',
@@ -2184,6 +2185,7 @@ return array(
     'Laravel\\Sanctum\\Guard' => $vendorDir . '/laravel/sanctum/src/Guard.php',
     'Laravel\\Sanctum\\HasApiTokens' => $vendorDir . '/laravel/sanctum/src/HasApiTokens.php',
     'Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController' => $vendorDir . '/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php',
+    'Laravel\\Sanctum\\Http\\Middleware\\AuthenticateSession' => $vendorDir . '/laravel/sanctum/src/Http/Middleware/AuthenticateSession.php',
     'Laravel\\Sanctum\\Http\\Middleware\\CheckAbilities' => $vendorDir . '/laravel/sanctum/src/Http/Middleware/CheckAbilities.php',
     'Laravel\\Sanctum\\Http\\Middleware\\CheckForAnyAbility' => $vendorDir . '/laravel/sanctum/src/Http/Middleware/CheckForAnyAbility.php',
     'Laravel\\Sanctum\\Http\\Middleware\\CheckForAnyScope' => $vendorDir . '/laravel/sanctum/src/Http/Middleware/CheckForAnyScope.php',

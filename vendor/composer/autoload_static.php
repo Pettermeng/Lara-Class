@@ -501,6 +501,7 @@ class ComposerStaticInit82747840032953666b3490b3d5c0b807
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\backend\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/AdminController.php',
         'App\\Http\\Controllers\\backend\\CategoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/CategoriesController.php',
@@ -2677,6 +2678,7 @@ class ComposerStaticInit82747840032953666b3490b3d5c0b807
         'Laravel\\Sanctum\\Guard' => __DIR__ . '/..' . '/laravel/sanctum/src/Guard.php',
         'Laravel\\Sanctum\\HasApiTokens' => __DIR__ . '/..' . '/laravel/sanctum/src/HasApiTokens.php',
         'Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php',
+        'Laravel\\Sanctum\\Http\\Middleware\\AuthenticateSession' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/AuthenticateSession.php',
         'Laravel\\Sanctum\\Http\\Middleware\\CheckAbilities' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/CheckAbilities.php',
         'Laravel\\Sanctum\\Http\\Middleware\\CheckForAnyAbility' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/CheckForAnyAbility.php',
         'Laravel\\Sanctum\\Http\\Middleware\\CheckForAnyScope' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/CheckForAnyScope.php',
